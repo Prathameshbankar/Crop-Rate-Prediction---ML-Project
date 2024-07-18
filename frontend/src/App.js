@@ -1,5 +1,15 @@
 // src/App.js
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+
+import Banner from './components/home/Banner';
+import Introduction from './components/home/Introduction';
+
+import PredictionForm from './components/predict/PredictionForm';
+import PredictionResult from './components/predict/PredictionResult';
+
+import About from './components/about/AboutUs';
 
 function App() {
   const [inputData, setInputData] = useState({
@@ -30,27 +40,25 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Crop Yield Prediction</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          name="feature1"
-          placeholder="Feature 1"
-          value={inputData.feature1}
-          onChange={handleChange}
-        />
-        <input
-          type="number"
-          name="feature2"
-          placeholder="Feature 2"
-          value={inputData.feature2}
-          onChange={handleChange}
-        />
-        <button type="submit">Predict</button>
-      </form>
-      {prediction !== null && <p>Predicted Yield: {prediction}</p>}
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<><Banner /><Introduction /></>} />
+          <Route path="/predict" element={
+            <>
+              <PredictionForm 
+                inputData={inputData} 
+                handleChange={handleChange} 
+                handleSubmit={handleSubmit} 
+              />
+              <PredictionResult prediction={prediction} />
+            </>
+          } />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
