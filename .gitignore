@@ -1,0 +1,38 @@
+# Virtual Environment
+venv/
+*.pyc
+__pycache__/
+
+# Flask
+instance/
+.webassets-cache
+
+# Flask - log files
+*.log
+
+# Flask - coverage reports
+htmlcov/
+.coverage
+
+# Python
+*.py[cod]
+*.pyo
+*.pyd
+__pycache__/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
