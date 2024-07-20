@@ -1,37 +1,37 @@
 import React from 'react';
 
-const PredictionForm = ({ inputData, handleChange, handleSubmit }) => {
+const PredictionGraphForm = ({ inputData, handleChange, handleSubmitGraph }) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmitGraph}>
       <div className="px-4 pt-5">
         <div className="layout-content-container flex flex-col max-w-[960px]">
           <div className="flex flex-wrap justify-between gap-3 p-4">
             <div className="flex min-w-72 flex-col gap-3">
-              <p className="text-[#141b0e] tracking-light text-[32px] font-bold leading-tight">Predict Crop Rate</p>
-              <p className="text-[#73974e] text-sm font-normal leading-normal">Get a crop rate prediction for your farm</p>
+              <p className="text-[#141b0e] tracking-light text-[32px] font-bold leading-tight">Predict Crop Rate Range</p>
+              <p className="text-[#73974e] text-sm font-normal leading-normal">Get a crop rate prediction graph for your farm</p>
             </div>
           </div>
           <div className="flex flex-wrap gap-4 px-4 py-3">
             <label className="flex flex-col flex-1">
-              <p className="text-[#141b0e] text-base font-medium leading-normal pb-2">Date</p>
+              <p className="text-[#141b0e] text-base font-medium leading-normal pb-2">From Date</p>
               <input
                 required
                 type="date"
-                name="date"
-                value={inputData.date}
+                name="from_date"
+                value={inputData.from_date}
                 onChange={handleChange}
                 className="form-input flex w-full rounded-xl text-[#141b0e] focus:outline-0 focus:ring-0 border border-[#dbe7d0] bg-[#fafcf8] focus:border-[#dbe7d0] h-14 placeholder:text-[#73974e] p-[15px] text-base font-normal leading-normal"
               />
             </label>
             <label className="flex flex-col flex-1">
-              <p className="text-[#141b0e] text-base font-medium leading-normal pb-2">Monthly Rainfall (mm)</p>
+              <p className="text-[#141b0e] text-base font-medium leading-normal pb-2">To Date</p>
               <input
                 required
-                name="monthly_rainfall"
-                value={inputData.monthly_rainfall}
+                type="date"
+                name="to_date"
+                value={inputData.to_date}
                 onChange={handleChange}
                 className="form-input flex w-full rounded-xl text-[#141b0e] focus:outline-0 focus:ring-0 border border-[#dbe7d0] bg-[#fafcf8] focus:border-[#dbe7d0] h-14 placeholder:text-[#73974e] p-[15px] text-base font-normal leading-normal"
-                placeholder="Enter the monthly rainfall"
               />
             </label>
           </div>
@@ -85,7 +85,7 @@ const PredictionForm = ({ inputData, handleChange, handleSubmit }) => {
               type="submit"
               className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-xl h-10 px-4 bg-[#80e619] text-[#141b0e] text-sm font-bold leading-normal tracking-[0.015em]"
             >
-              <span className="truncate">Predict</span>
+              <span className="truncate">Get Prediction Graph</span>
             </button>
           </div>
         </div>
@@ -94,4 +94,4 @@ const PredictionForm = ({ inputData, handleChange, handleSubmit }) => {
   );
 };
 
-export default PredictionForm;
+export default PredictionGraphForm;
