@@ -10,7 +10,7 @@ The project consists of two main components:
 
    - Located in the `backend/` directory.
    - Implements a Flask API that serves machine learning predictions.
-   - Uses a pre-trained machine learning model (`crop_yield_model.pkl`) stored in the `backend/` directory.
+   - Uses a pre-trained machine learning model (`best_model.pkl`) stored in the `backend/` directory.
    - Handles POST requests from the frontend to predict crop rates based on input features.
 
 2. **Frontend (React Application)**
