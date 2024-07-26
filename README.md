@@ -30,9 +30,11 @@ Crop-Rate-Prediction/
 
 │ ├── model.py
 
-│ └── crop_yield_model.pkl
+│ └── best_model.pkl
 
 │ ├── requirements.txt
+
+│ ├── preprocessor.pkl
 
 │
 
