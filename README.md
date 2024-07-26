@@ -136,4 +136,20 @@ Follow these steps to set up the project on your local machine:
    npm start # or yarn start
    ```
 
+  
+  ## Screenshots
+
+  Here are some screenshots of the Crop Rate Prediction application:
+
+  1. Home Page:
+    ![Home Page](/screenshots/home.png)
+
+  2. Prediction Graph:
+    ![Input Form](/screenshots/pred_graph.png)
+
+  3. Prediction Results:
+    ![Prediction Results](/screenshots/pred_result.png)
+
+  Feel free to explore the application and interact with the different features!
+
 
