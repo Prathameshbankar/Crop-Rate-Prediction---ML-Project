@@ -15,7 +15,7 @@ import About from './components/about/AboutUs';
 function App() {
   const [inputData, setInputData] = useState({
     date: '',
-    monthly_rainfall: '',
+    // monthly_rainfall: '',
     district_name: '',
     market_name: '',
     commodity: '',

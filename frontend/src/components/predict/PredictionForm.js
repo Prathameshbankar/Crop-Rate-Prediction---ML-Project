@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useState } from "react";
 
 const PredictionForm = ({ inputData, handleChange, handleSubmit }) => {
+  const districtMarkets = {
+    Nashik: ["Yeola", "Kalvan", "Sinner", "Malegaon", "Nandgaon", "Suragana", "Manmad", "Satana", "Lasalgaon"],
+    Ahmednagar: [ "Shrirampur", "Shrigonda","Rahuri", "Kopargaon","Akole", "Sangamner", "Newasa", "Pathardi", "Rahata", "Rahuri(Vambori)"],
+    "Chattrapati Sambhajinagar": ["Paithan", "Kannad", "Vaijpur", "Gangapur", "Chattrapati Sambhajinagar"],
+  };
+
+  const [filteredMarkets, setFilteredMarkets] = useState([]);
+
+  const handleDistrictChange = (e) => {
+    const district = e.target.value;
+    handleChange(e); // Update inputData
+    setFilteredMarkets(districtMarkets[district] || []);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="px-4 pt-5">
@@ -23,7 +37,7 @@ const PredictionForm = ({ inputData, handleChange, handleSubmit }) => {
                 className="form-input flex w-full rounded-xl text-[#141b0e] focus:outline-0 focus:ring-0 border border-[#dbe7d0] bg-[#fafcf8] focus:border-[#dbe7d0] h-14 placeholder:text-[#73974e] p-[15px] text-base font-normal leading-normal"
               />
             </label>
-            <label className="flex flex-col flex-1">
+            {/* <label className="flex flex-col flex-1">
               <p className="text-[#141b0e] text-base font-medium leading-normal pb-2">Monthly Rainfall (mm)</p>
               <input
                 required
@@ -33,7 +47,7 @@ const PredictionForm = ({ inputData, handleChange, handleSubmit }) => {
                 className="form-input flex w-full rounded-xl text-[#141b0e] focus:outline-0 focus:ring-0 border border-[#dbe7d0] bg-[#fafcf8] focus:border-[#dbe7d0] h-14 placeholder:text-[#73974e] p-[15px] text-base font-normal leading-normal"
                 placeholder="Enter the monthly rainfall"
               />
-            </label>
+            </label> */}
           </div>
           <div className="flex flex-wrap gap-4 px-4 py-3">
             <label className="flex flex-col flex-1">
@@ -42,13 +56,15 @@ const PredictionForm = ({ inputData, handleChange, handleSubmit }) => {
                 required
                 name="district_name"
                 value={inputData.district_name}
-                onChange={handleChange}
+                onChange={handleDistrictChange}
                 className="form-input flex w-full rounded-xl text-[#141b0e] focus:outline-0 focus:ring-0 border border-[#dbe7d0] bg-[#fafcf8] focus:border-[#dbe7d0] h-14 placeholder:text-[#73974e] p-[15px] text-base font-normal leading-normal"
               >
                 <option value="">Select a district</option>
-                <option value="Nashik">Nashik</option>
-                <option value="Pune">Pune</option>
-                <option value="Mumbai">Mumbai</option>
+                {Object.keys(districtMarkets).map((district) => (
+                  <option key={district} value={district}>
+                    {district}
+                  </option>
+                ))}
               </select>
             </label>
             <label className="flex flex-col flex-1">
@@ -61,7 +77,11 @@ const PredictionForm = ({ inputData, handleChange, handleSubmit }) => {
                 className="form-input flex w-full rounded-xl text-[#141b0e] focus:outline-0 focus:ring-0 border border-[#dbe7d0] bg-[#fafcf8] focus:border-[#dbe7d0] h-14 placeholder:text-[#73974e] p-[15px] text-base font-normal leading-normal"
               >
                 <option value="">Select a market</option>
-                <option value="Yeola">Yeola</option>
+                {filteredMarkets.map((market) => (
+                  <option key={market} value={market}>
+                    {market}
+                  </option>
+                ))}
               </select>
             </label>
           </div>
@@ -76,6 +96,7 @@ const PredictionForm = ({ inputData, handleChange, handleSubmit }) => {
                 className="form-input flex w-full rounded-xl text-[#141b0e] focus:outline-0 focus:ring-0 border border-[#dbe7d0] bg-[#fafcf8] focus:border-[#dbe7d0] h-14 placeholder:text-[#73974e] p-[15px] text-base font-normal leading-normal"
               >
                 <option value="">Select a commodity</option>
+                <option value="Maize">Maize</option>
                 <option value="Soyabean">Soyabean</option>
               </select>
             </label>

@@ -20,20 +20,20 @@ season = {
     10: "Post-Monsoon", 11: "Post-Monsoon", 12: "Winter"
 }
 
-rainfall_2024 = {
-    1: 0, 
-    2: 0, 
-    3: 20.1, 
-    4: 0, 
-    5: 0,
-    6: 142.8, 
-    7: 114.8, 
-    8: 24.8, 
-    9: 229.6,
-    10: 15.5, 
-    11: 30.5, 
-    12: 4.1
-}
+# rainfall_2024 = {
+#     1: 0, 
+#     2: 0, 
+#     3: 20.1, 
+#     4: 0, 
+#     5: 0,
+#     6: 142.8, 
+#     7: 114.8, 
+#     8: 24.8, 
+#     9: 229.6,
+#     10: 15.5, 
+#     11: 30.5, 
+#     12: 4.1
+# }
 
 @app.route('/predictRate', methods=['POST'])
 def predict_modal_price():
@@ -48,7 +48,7 @@ def predict_modal_price():
             'Year': year,
             'Month': month,
             'Day': day,
-            'Monthly Rainfall': data['monthly_rainfall'],
+            # 'Monthly Rainfall': data['monthly_rainfall'],
             'District Name': data['district_name'],
             'Market Name': data['market_name'],
             'Commodity': data['commodity'],
@@ -86,7 +86,7 @@ def predict_rate_range():
                 'Year': year,
                 'Month': month,
                 'Day': day,
-                'Monthly Rainfall': rainfall_2024[month],
+                # 'Monthly Rainfall': rainfall_2024[month],
                 'District Name': data['district_name'],
                 'Market Name': data['market_name'],
                 'Commodity': data['commodity'],
